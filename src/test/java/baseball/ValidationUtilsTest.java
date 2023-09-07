@@ -3,6 +3,8 @@ package baseball;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -33,5 +35,15 @@ public class ValidationUtilsTest {
             ValidationUtils.isThree("1234");
         });
         assertThat(ValidationUtils.isThree("123")).isTrue();
+    }
+
+    @Test
+    @DisplayName("파싱")
+    void 파싱테스트() {
+        assertThat(ValidationUtils.ParseNumber("123"))
+                .isEqualTo(Arrays.asList(1, 2, 3));
+
+        assertThat(ValidationUtils.ParseNumber("315"))
+                .isEqualTo(Arrays.asList(3, 1, 5));
     }
 }
