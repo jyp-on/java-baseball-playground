@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ValidationUtilsTest {
     @Test
@@ -23,5 +24,14 @@ public class ValidationUtilsTest {
         assertThat(ValidationUtils.isDuplicated(1, 2, 2)).isTrue();
         assertThat(ValidationUtils.isDuplicated(1, 2, 1)).isTrue();
         assertThat(ValidationUtils.isDuplicated(2, 2, 3)).isTrue();
+    }
+
+    @Test
+    @DisplayName("세자리인지")
+    void 세자리인지() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            ValidationUtils.isThree("1234");
+        });
+        assertThat(ValidationUtils.isThree("123")).isTrue();
     }
 }

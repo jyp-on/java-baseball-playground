@@ -34,7 +34,4 @@ public class BallsTest {
         Assertions.assertThat(playResult[0]).isEqualTo(0);
         Assertions.assertThat(playResult[1]).isEqualTo(0);
     }
-
-
-
 }
