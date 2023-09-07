@@ -2,6 +2,7 @@ package study;
 
 import java.util.HashSet;
 import java.util.IllegalFormatException;
+import java.util.Scanner;
 import java.util.Set;
 
 public class StringCalculator {
@@ -54,6 +55,15 @@ public class StringCalculator {
             return result /= num;
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        StringCalculator calculator = new StringCalculator();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        int result = calculator.init(input);
+        System.out.println(result);
     }
 
 
