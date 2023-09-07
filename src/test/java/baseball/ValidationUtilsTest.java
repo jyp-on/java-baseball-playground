@@ -15,4 +15,13 @@ public class ValidationUtilsTest {
         assertThat(ValidationUtils.validNo(0)).isFalse();
         assertThat(ValidationUtils.validNo(10)).isFalse();
     }
+
+    @Test
+    @DisplayName("중복이있는지")
+    void 중복이있는지() {
+        assertThat(ValidationUtils.isDuplicated(1, 5, 6)).isFalse();
+        assertThat(ValidationUtils.isDuplicated(1, 2, 2)).isTrue();
+        assertThat(ValidationUtils.isDuplicated(1, 2, 1)).isTrue();
+        assertThat(ValidationUtils.isDuplicated(2, 2, 3)).isTrue();
+    }
 }
