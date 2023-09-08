@@ -22,10 +22,11 @@ public class ValidationUtilsTest {
     @Test
     @DisplayName("중복이있는지")
     void 중복이있는지() {
-        assertThat(ValidationUtils.isDuplicated(1, 5, 6)).isFalse();
-        assertThat(ValidationUtils.isDuplicated(1, 2, 2)).isTrue();
-        assertThat(ValidationUtils.isDuplicated(1, 2, 1)).isTrue();
-        assertThat(ValidationUtils.isDuplicated(2, 2, 3)).isTrue();
+        assertThat(ValidationUtils.isDuplicated(Arrays.asList(1, 5, 6))).isFalse();
+        assertThat(ValidationUtils.isDuplicated(Arrays.asList(1, 2, 2))).isTrue();
+        assertThat(ValidationUtils.isDuplicated(Arrays.asList(1, 2, 1))).isTrue();
+        assertThat(ValidationUtils.isDuplicated(Arrays.asList(2, 2, 3))).isTrue();
+        assertThat(ValidationUtils.isDuplicated(Arrays.asList(2, 2, 2))).isTrue();
     }
 
     @Test
@@ -40,10 +41,10 @@ public class ValidationUtilsTest {
     @Test
     @DisplayName("파싱")
     void 파싱테스트() {
-        assertThat(ValidationUtils.ParseNumber("123"))
+        assertThat(ValidationUtils.parseNumber("123"))
                 .isEqualTo(Arrays.asList(1, 2, 3));
 
-        assertThat(ValidationUtils.ParseNumber("315"))
+        assertThat(ValidationUtils.parseNumber("315"))
                 .isEqualTo(Arrays.asList(3, 1, 5));
     }
 }
