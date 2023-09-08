@@ -11,21 +11,24 @@ public class Balls {
     }
 
     public int[] play(Ball userBall) {
-        PlayResult playResult = new PlayResult();
+        PlayManager playManager = new PlayManager();
 
         for (int i = 0; i < answer.size(); i++) {
-            playResult.record(answer.get(i).play(userBall));
+            playManager.record(answer.get(i).play(userBall));
         }
 
-        return playResult.getResult();
+        return playManager.getResult();
     }
 
     public List<Ball> mapBall(List<Integer> balls) {
         List<Ball> ballList = new ArrayList<>();
         for (int i = 0; i < balls.size(); i++) {
-            System.out.println(i+1 + " " + balls.get(i));
             ballList.add(new Ball(i+1, balls.get(i)));
         }
         return ballList;
+    }
+
+    public Ball getBall(int i) {
+        return this.answer.get(i);
     }
 }
